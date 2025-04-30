@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class AiPhone extends Device {
+public class AiPhone extends Device implements Phone{
     public final byte modelNumber;
 
     public AiPhone(int serialNumber, int capacity, byte modelNumber) {
@@ -33,5 +33,10 @@ public class AiPhone extends Device {
     @Override
     public int hashCode() {
         return Objects.hash(serialNumber);
+    }
+
+    @Override
+    public void callNumber(Integer number) {
+        System.out.printf("Айфон звонит по номеру %d%n", number);
     }
 }

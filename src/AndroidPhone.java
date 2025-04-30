@@ -1,4 +1,4 @@
-public class AndroidPhone extends Device {
+public class AndroidPhone extends Device implements Phone{
     public final String brand;
 
     public AndroidPhone(int serialNumber, int capacity, String brand) {
@@ -21,4 +21,8 @@ public class AndroidPhone extends Device {
     }
 
 
+    @Override
+    public void callNumber(Integer number) {
+        System.out.printf("%s звонит по номеру %d%n", brand, number);
+    }
 }
