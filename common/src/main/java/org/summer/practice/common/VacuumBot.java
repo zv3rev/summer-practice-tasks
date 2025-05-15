@@ -1,3 +1,5 @@
+package org.summer.practice.common;
+
 public class VacuumBot extends Device {
     public final int wattage;
 
@@ -15,7 +17,7 @@ public class VacuumBot extends Device {
 
     @Override
     public String toString() {
-        return "VacuumBot{" +
+        return "org.summer.practice.common.VacuumBot{" +
                 "wattage=" + wattage +
                 ", BATTERY_CAPACITY=" + batteryCapacity +
                 '}';

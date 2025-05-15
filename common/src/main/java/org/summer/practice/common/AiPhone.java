@@ -1,3 +1,5 @@
+package org.summer.practice.common;
+
 import java.util.Objects;
 
 public class AiPhone extends Device implements Phone{
@@ -16,7 +18,7 @@ public class AiPhone extends Device implements Phone{
 
     @Override
     public String toString() {
-        return "AiPhone{" +
+        return "org.summer.practice.common.AiPhone{" +
                 "modelNumber=" + modelNumber +
                 ", BATTERY_CAPACITY=" + batteryCapacity +
                 '}';
@@ -25,8 +27,7 @@ public class AiPhone extends Device implements Phone{
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AiPhone)) return false;
-        AiPhone aiPhone = (AiPhone) o;
+        if (!(o instanceof AiPhone aiPhone)) return false;
         return serialNumber == aiPhone.serialNumber;
     }
 

@@ -1,3 +1,5 @@
+package org.summer.practice.common;
+
 public abstract class Device {
     public final int batteryCapacity;
     protected final int serialNumber;

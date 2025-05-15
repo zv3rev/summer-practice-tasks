@@ -1,3 +1,5 @@
+package org.summer.practice.common;
+
 public class AndroidPhone extends Device implements Phone{
     public final String brand;
 
@@ -14,7 +16,7 @@ public class AndroidPhone extends Device implements Phone{
 
     @Override
     public String toString() {
-        return "AndroidPhone{" +
+        return "org.summer.practice.common.AndroidPhone{" +
                 "brand='" + brand + '\'' +
                 ", BATTERY_CAPACITY=" + batteryCapacity +
                 '}';
