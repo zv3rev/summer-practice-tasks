@@ -1,4 +1,4 @@
-package org.summer.practice.practiceproject;
+package org.summer.practice.aggregator;
 
 import org.summer.practice.common.AiPhone;
 import org.summer.practice.common.AndroidPhone;
@@ -38,7 +38,7 @@ public class Main {
         System.out.printf("Одновременно включено устройств: " + counter.getDevicesCount());
     }
 
-    private static void turnOnAndRegister(Device device){
+    public static void turnOnAndRegister(Device device){
         device.turnOn();
         counter.register(device);
     }
