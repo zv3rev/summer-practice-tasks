@@ -37,16 +37,16 @@ pipeline {
         archiveArtifacts artifacts: '**/target/site/pmd.html', fingerprint: true, allowEmptyArchive: true
         
         publishHTML([
-          reportName:           'Core PMD',
-          reportDir:            'core/target/site',
+          reportName:           'Common PMD',
+          reportDir:            'common/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
           keepAll:              true
         ])
         publishHTML([
-          reportName:           'UI PMD',
-          reportDir:            'ui/target/site',
+          reportName:           'Utils PMD',
+          reportDir:            'utils/target/site',
           reportFiles:          'pmd.html',
           allowMissing:         true,
           alwaysLinkToLastBuild:true,
