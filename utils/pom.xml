@@ -13,7 +13,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.summer.pracitce</groupId>
+            <groupId>org.summer</groupId>
             <artifactId>common</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
