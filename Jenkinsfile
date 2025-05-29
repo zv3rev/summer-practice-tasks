@@ -33,9 +33,9 @@ pipeline {
     stage('Report') {
       when { branch 'develop' }
       steps {
-        
+
         archiveArtifacts artifacts: '**/target/site/pmd.html', fingerprint: true, allowEmptyArchive: true
-        
+
         publishHTML([
           reportName:           'Common PMD',
           reportDir:            'common/target/site',
@@ -66,15 +66,15 @@ pipeline {
 
     stage('Coverage') {
       steps {
-        
+
         bat "mvn test"
 
-        
+
         dir('coverage') {
           bat "mvn verify -Dcoverage.threshold=${env.COVERAGE_THRESHOLD}"
         }
 
-        
+
         publishHTML([
           reportName:           'Jacoco Coverage',
           reportDir:            'coverage/target/site/jacoco-aggregate',
@@ -90,6 +90,7 @@ pipeline {
       steps {
         bat 'mvn package -DskipTests'
         bat 'mvn install -DskipTests'
+        bat "if not exist \"%PUBLISH_DIR%\" mkdir \"%PUBLISH_DIR%\""
         bat "copy aggregator\\target\\*-jar-with-dependencies.jar %PUBLISH_DIR%\\"
         echo "Artifact published: ${env.PUBLISH_DIR}"
       }
