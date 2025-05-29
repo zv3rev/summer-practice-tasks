@@ -90,7 +90,7 @@ pipeline {
       steps {
         bat 'mvn package -DskipTests'
         bat 'mvn install -DskipTests'
-        bat "copy ui\\target\\*-jar-with-dependencies.jar %PUBLISH_DIR%\\"
+        bat "copy aggregator\\target\\*-jar-with-dependencies.jar %PUBLISH_DIR%\\"
         echo "Artifact published: ${env.PUBLISH_DIR}"
       }
     }
