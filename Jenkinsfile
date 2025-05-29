@@ -69,11 +69,9 @@ pipeline {
 
         bat "mvn test"
 
-
         dir('coverage') {
           bat "mvn verify -Dcoverage.threshold=${env.COVERAGE_THRESHOLD}"
         }
-
 
         publishHTML([
           reportName:           'Jacoco Coverage',
