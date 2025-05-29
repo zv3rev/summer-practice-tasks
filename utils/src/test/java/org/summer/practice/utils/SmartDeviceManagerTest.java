@@ -4,9 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.summer.practice.common.AiPhone;
 import org.summer.practice.common.AndroidPhone;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 public class SmartDeviceManagerTest {
-    private final SmartDeviceManager manager = new SmartDeviceManager();
+    private final DeviceCounter counter = mock();
+    private final SmartDeviceManager manager = new SmartDeviceManager(counter);
     private final AiPhone iPhone = new AiPhone(1, 3000, (byte)14);
     private final AndroidPhone android = new AndroidPhone(2, 4000, "Samsung");
 
@@ -22,5 +24,14 @@ public class SmartDeviceManagerTest {
         String stats = manager.getDeviceStatistics();
         assertTrue(stats.contains("iPhone: 2"));
         assertTrue(stats.contains("Android: 1"));
+    }
+
+    @Test
+    public void testGetConnectedCount(){
+        when(counter.getDevicesCount()).thenReturn(1);
+
+        assertEquals(1, manager.getConnectedCount());
+
+        verify(counter).getDevicesCount();
     }
 }

@@ -8,9 +8,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class SmartDeviceManager {
-    private final DeviceCounter counter = new DeviceCounter();
+    private final DeviceCounter counter;
     private final List<Device> connectedDevices = new ArrayList<>();
     private final List<String> deviceNotifications = new ArrayList<>();
+
+    public SmartDeviceManager(DeviceCounter counter) {
+        this.counter = counter;
+    }
 
     /**
      * Регистрирует устройство и подключает его к менеджеру
@@ -20,6 +24,13 @@ public class SmartDeviceManager {
         counter.register(device);
         connectedDevices.add(device);
         addNotification("Устройство подключено: " + device.getClass().getSimpleName());
+    }
+
+    /**
+     * Возвращает количество подключенных устройств
+     */
+    public int getConnectedCount(){
+        return counter.getDevicesCount();
     }
 
     /**
