@@ -72,15 +72,6 @@ pipeline {
         dir('coverage') {
           bat "mvn verify -Dcoverage.threshold=${env.COVERAGE_THRESHOLD}"
         }
-
-        publishHTML([
-          reportName:           'Jacoco Coverage',
-          reportDir:            'coverage/target/site/jacoco-aggregate',
-          reportFiles:          'index.html',
-          allowMissing:         true,
-          alwaysLinkToLastBuild:true,
-          keepAll:              true
-        ])
       }
     }
 
